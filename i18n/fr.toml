@@ -1,0 +1,26 @@
+[read_more]
+other = "Continuer la lecture"
+
+[published_date]
+other = "Publié"
+
+[last_modified]
+other = "Dernière modification"
+
+[pagination_next]
+other = "Suivant"
+
+[pagination_prev]
+other = "Précédent"
+
+[pagination_first]
+other = "Premier"
+
+[pagination_last]
+other = "Dernier"
+
+[page_not_found]
+other = "Page introuvable !"
+
+[date_format]
+other = "%s %s %s %s"

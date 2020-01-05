@@ -1,0 +1,90 @@
+@charset "utf-8"
+
+// get variables from Hugo config
+$qd-primary: {{ .Site.Params.colors.primary | default "#333" }}
+$qd-link: {{ .Site.Params.colors.link | default "#FE5186" }}
+$qd-text: {{ .Site.Params.colors.text | default "#DDD" }}
+$qd-bg: {{ .Site.Params.colors.bg | default "#222" }}
+
+// Text Colors
+$text: $qd-text
+$code: $qd-text
+$text-strong: lighten($qd-text, 10%)
+$title-color: lighten($qd-text, 10%)
+$subtitle-color: darken($qd-text, 5%)
+
+// Primary Colors
+$primary: $qd-primary
+$hr-background-color: $qd-primary
+
+// Link Colors
+$secondary: $qd-link
+$link: $qd-link
+$link-hover: lighten($qd-link, 10%)
+
+// Background Colors
+$background: $qd-bg
+$code-background: lighten($qd-bg, 5%)
+$white: $qd-bg
+$card-background-color: lighten($qd-bg, 10%)
+$footer-background-color: desaturate(lighten($qd-bg, 4%), 10%)
+
+// style
+$footer-padding: 4rem 1.5rem
+
+@import "./bulma/bulma";
+
+// Custom Theme Styles
+.card
+	margin-bottom: 4rem
+	.card-meta-top
+		margin-bottom: 1rem
+	.card-meta-bottom
+		margin-top: 1rem
+
+footer
+	p
+		margin-bottom: 1rem
+
+#header-nb
+  padding: 0
+  background-color: $qd-primary
+  height: 4rem
+
+#header-nb-menu
+  padding-top: 0
+  padding-bottom: 0
+  height: 4rem
+
+.navbar
+  height: 4rem
+
+.navbar-brand
+    height: 4rem
+
+.navbar-burger
+  padding-top: 0
+  padding-bottom: 0
+  margin-top: 10px
+
+.navbar-item
+  padding-top: 0
+  padding-bottom: 0
+  margin-top: 10px
+
+.header-nb-cursor
+  display: inline-block
+  width: 10px
+  height: 1rem
+  background: $qd-link
+  margin-left: 5px
+  border-radius: 1px
+  animation: cursor 1.5s infinite
+  margin-top: 30px
+  margin-left: -18px
+
+
+@keyframes cursor
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }

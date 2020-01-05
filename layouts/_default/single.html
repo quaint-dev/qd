@@ -1,0 +1,42 @@
+{{ define "main" }}
+
+  <article class="card">
+    <div class="card-content">
+
+      <div class="card-meta-top">
+        <h1 class="title is-3">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h1>
+        {{ if not .Date.IsZero }}
+        <p class="subtitle is-7 is-italic">{{ partial "date.html" . }}</p>
+        {{ end }}
+      </div>
+
+      <div class="content">
+        {{ .Content }}
+        <br />
+        <br />
+        <br />
+        {{ partial "custom_single.html" . }}
+
+        {{ if .Params.comment }}
+
+        {{ if .Site.DisqusShortname }}
+        {{ partial "disqus.html" . }}
+        {{ end }}
+
+        {{ if .Site.Params.useCommento }}
+        {{ partial "commento.html" . }}
+        {{ end }}
+
+        {{ if .Site.Params.useRemark42 }}
+        {{ partial "remark42.html" }}
+        {{ end }}
+
+        {{ end }}
+      </div>
+
+    </div>
+  </article>
+
+{{ end }}

@@ -1,0 +1,12 @@
+name = "qd"
+license = "MIT"
+licenselink = "https://github.com/quaint-dev/qd/blob/master/LICENSE"
+description = "A dark theme using Bulma css framework"
+homepage = "https://github.com/quaint-dev/qd/"
+tags = ["blog", "responsive", "dark"]
+features = ["responsive", "dark", "bulma"]
+min_version = "0.1"
+
+[author]
+  name = "Julie Bouillon"
+  homepage = "https://www.quaint.dev"

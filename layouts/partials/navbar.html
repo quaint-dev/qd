@@ -1,0 +1,58 @@
+<div class="columns is-centered" id="header-nb">
+    <div class="column is-10-tablet is-8-desktop is-6-widescreen" id="header-nb-menu">
+        <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+
+            <div class="navbar-brand">
+                <a class="navbar-item is-size-5" href="{{ .Site.BaseURL }}" id="header-logo">
+                    {{ .Site.Title }} > &nbsp
+                </a>
+                <span class="header-nb-cursor"></span>
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbar-menu" class="navbar-menu">
+                <div class="navbar-end">
+                    <!-- Main Menu Links -->
+                    {{ range .Site.Menus.main }}
+                    <a href="{{ .URL }}" class="navbar-item">
+                        {{ .Name }}
+                    </a>
+                    {{end}}
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+  document.addEventListener('DOMContentLoaded', function () {
+
+    // Get all "navbar-burger" elements
+    var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+
+      // Add a click event on each of them
+      $navbarBurgers.forEach(function ($el) {
+        $el.addEventListener('click', function () {
+
+          // Get the target from the "data-target" attribute
+          var target = $el.dataset.target;
+          var $target = document.getElementById(target);
+
+          // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+          $el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+
+        });
+      });
+    }
+  });
+
+</script>

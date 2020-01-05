@@ -1,0 +1,17 @@
+{{ $date := .Date }}
+{{ if .Lastmod.IsZero }}
+{{ i18n "published_date" }}
+{{ else }}
+{{ i18n "last_modified" }}
+{{ $date = .Lastmod }}
+{{ end }}
+{{ if ne site.Language.Lang "en" }}
+{{ $day := index site.Data (printf "days-%s" site.Language.Lang) (printf "%d" .Weekday) }}
+{{ $daynum := (printf "%d" .Day) }}
+{{ $month := index site.Data (printf "months-%s" site.Language.Lang) (printf "%d" .Month) }}
+{{ $year := (printf "%d" .Year) }}
+{{ $date := delimit (slice $day $daynum "de" $month "de" $year) " "}}
+{{ $date = (printf (i18n "date_format") $day $daynum $month $year) }}
+{{ else }}
+{{ $date.Format "Monday, January 2, 2006" }}
+{{ end }}

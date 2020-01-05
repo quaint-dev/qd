@@ -1,0 +1,23 @@
+[read_more]
+other = "Leer Más"
+
+[published_date]
+other = "Publicado"
+
+[pagination_next]
+other = "Más Antiguos"
+
+[pagination_prev]
+other = "Más Recientes"
+
+[pagination_first]
+other = "Primero"
+
+[pagination_last]
+other = "Último"
+
+[page_not_found]
+other = "¡La página que buscas no existe!"
+
+[date_format]
+other = "%s %s de %s de %s"

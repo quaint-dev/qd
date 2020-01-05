@@ -1,0 +1,13 @@
+{{ define "main" }}
+
+  {{ $mainSection := .Site.Params.mainSections }}
+  {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" $mainSection) }}
+  {{ range $paginator.Pages }}
+
+    {{ .Render "li" }}
+
+  {{ end }}
+
+  {{ partial "pagination.html" $paginator }}
+
+{{ end }}

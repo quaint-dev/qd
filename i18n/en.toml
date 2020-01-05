@@ -1,0 +1,27 @@
+[read_more]
+other = "Read More"
+
+[published_date]
+other = "Published"
+
+[last_modified]
+other = "Last modified on"
+
+[pagination_next]
+other = "Next"
+
+[pagination_prev]
+other = "Prev"
+
+[pagination_first]
+other = "First"
+
+[pagination_last]
+other = "Last"
+
+[page_not_found]
+other = "Page not found !"
+
+[date_format]
+# day daynum month year
+other = "%s %s, %s %s"

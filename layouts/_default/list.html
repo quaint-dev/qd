@@ -1,0 +1,51 @@
+{{ define "main" }}
+
+<div class="hero">
+    <div class="hero-body">
+
+        <h1 class="title is-2 has-text-centered">
+            {{ .Title }}
+        </h1>
+        <div class="content">
+            {{ .Content }}
+        </div>
+
+    </div>
+</div>
+
+  {{ $paginator := .Paginate .Data.Pages }}
+  {{ range $paginator.Pages }}
+
+<article class="card">
+    <div class="card-content">
+
+        <div class="card-meta-top">
+            <h1 class="title is-3">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h1>
+            {{ if not .Date.IsZero }}
+            <p class="subtitle is-7 is-italic">{{ partial "date.html" . }}</p>
+            {{ end }}
+        </div>
+
+        <div class="content">
+            {{ .Summary }}
+        </div>
+
+        <div class="card-meta-bottom">
+            <div class="has-text-right">
+                <a href="{{ .RelPermalink }}" class="button is-primary">
+                    {{ i18n "read_more" }}
+                </a>
+            </div>
+        </div>
+
+    </div>
+</article>
+
+  {{ end }}
+  {{ partial "pagination.html" $paginator }}
+
+  {{ partial "custom_list.html" . }}
+
+{{ end }}

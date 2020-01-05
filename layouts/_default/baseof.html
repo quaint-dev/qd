@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="{{ .Site.BaseURL }}">
+
+    <title>
+        {{ block "title" . }}
+        {{ if .Page.IsHome }}
+        {{ .Site.Title -}}
+        {{ else }}
+        {{- .Title }} - {{ .Site.Title -}}
+        {{ end }}
+        {{ end }}
+    </title>
+
+    {{ $style := resources.Get "css/qd.sass" | resources.ExecuteAsTemplate "main.scss" . | resources.ToCSS | resources.Minify }}
+    <link rel="stylesheet" href="{{ $style.Permalink | relURL }}">
+
+    {{ partial "custom_header.html" . }}
+
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    {{ partial "navbar.html" . }}
+
+    <!-- Main Content Section -->
+    <section class="section">
+      <div class="columns is-centered">
+        <div class="column is-10-tablet is-8-desktop is-6-widescreen">
+          {{ block "main" . }}
+          {{ end }}
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      {{ partial "footer.html" . }}
+    </footer>
+
+    {{ partial "custom_footer.html" . }}
+
+    {{ if .Site.Params.useRemark42 }}
+    <script>
+     var remark_config = {
+         host: {{ .Site.Params.remark42Host | safeURL }},
+         site_id: {{ .Site.Params.remark42SideID }},
+         components: ['embed'],
+         theme: 'dark'
+     };
+
+     (function(c) {
+         for(var i = 0; i < c.length; i++){
+             var d = document, s = d.createElement('script');
+             s.src = remark_config.host + '/web/' +c[i] +'.js';
+             s.defer = true;
+             (d.head || d.body).appendChild(s);
+         }
+     })(remark_config.components || ['embed']);
+    </script>
+    {{ end }}
+  </body>
+</html>
