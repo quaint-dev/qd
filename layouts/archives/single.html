@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+<div class="hero">
+    <div class="hero-body">
+
+        <h1 class="title is-2 has-text-centered">
+            Archives
+        </h1>
+        <div class="content">
+            {{ range (.Site.Pages.GroupByDate "2006") }}
+            <h2 class="title is-4">{{ .Key }}</h2>
+            {{ range where (where .Pages "Type" "posts") ".IsPage" true }}
+            <span class="archives-date">{{ .Date.Format "Jan 2" }}</span>
+            <span><a href="{{ .URL }}">{{ .Title }}</a></span>
+            <br />
+            {{ end }}
+            {{ end }}
+        </div>
+
+    </div>
+</div>
+
+{{ end }}
