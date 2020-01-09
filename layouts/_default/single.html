@@ -15,6 +15,11 @@
       <div class="content">
         {{ .Content }}
         <br />
+        <div class="tags">
+            {{ range .Params.tags }}
+            <span class="tag"><a href="/tags/{{ . | urlize }}">{{ . }}</a></span>
+            {{ end }}
+        </div>
         <br />
         <br />
         {{ partial "custom_single.html" . }}

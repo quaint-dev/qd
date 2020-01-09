@@ -15,10 +15,17 @@
         </div>
 
         <div class="card-meta-bottom">
-            <div class="has-text-right">
-                <a href="{{ .RelPermalink }}" class="button is-primary">
+            <div class="columns is-mobile">
+            <div class="column">
+                {{ range .Params.tags }}
+                <span class="tag"><a href="/tags/{{ . | urlize }}">{{ . }}</a></span>
+                {{ end }}
+            </div>
+            <div class="column has-text-right">
+                <a href="{{ .RelPermalink }}" class="button is-small is-primary">
                     {{ i18n "read_more" }}
                 </a>
+            </div>
             </div>
         </div>
 
