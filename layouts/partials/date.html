@@ -1,5 +1,5 @@
 {{ $date := .Date }}
-{{ if .Lastmod.IsZero }}
+{{ if eq .Date .Lastmod }}
 {{ i18n "published_date" }}
 {{ else }}
 {{ i18n "last_modified" }}
