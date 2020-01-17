@@ -35,7 +35,11 @@
         {{ end }}
 
         {{ if .Site.Params.useRemark42 }}
-        {{ partial "remark42.html" }}
+        {{ partial "remark42.html" . }}
+        {{ end }}
+
+        {{ if .Site.Params.useMouthful }}
+        {{ partial "mouthful.html" . }}
         {{ end }}
 
         {{ end }}
